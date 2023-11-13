@@ -1,8 +1,32 @@
 import 'package:bookly/core/Utils/AssetsData.dart';
+import 'package:bookly/features/Splash/Presentation/Views/widgets/SlidingWedget.dart';
 import 'package:flutter/material.dart';
 
-class splashViewBody extends StatelessWidget {
+class splashViewBody extends StatefulWidget {
   const splashViewBody({super.key});
+
+  @override
+  State<splashViewBody> createState() => _splashViewBodyState();
+}
+
+class _splashViewBodyState extends State<splashViewBody>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+  late Animation<Offset> slidinganimation;
+
+  @override
+  void initState() {
+    super.initState();
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+    slidinganimation =
+        Tween<Offset>(begin: const Offset(0, 2), end: const Offset(0, 0))
+            .animate(animationController);
+    animationController.forward();
+    slidinganimation.addListener(() {
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +35,10 @@ class splashViewBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Image.asset(AssetsDate.logo),
-        
+        Sliding_animation(slidinganimation: slidinganimation)
       ],
-
     );
   }
 }
+
+

@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class AssetsDate {
-  static const logo = 'assets/images/Logo.png';
+  static const logo = 'assets/images/BOOKLY.png';
 }
