@@ -25,7 +25,6 @@ class _splashViewBodyState extends State<splashViewBody>
     NavigationToHomeview();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -49,11 +48,11 @@ class _splashViewBodyState extends State<splashViewBody>
       setState(() {});
     });
   }
-  
+
   void NavigationToHomeview() {
     Future.delayed(const Duration(seconds: 2), () {
       Get.to(
-        const Home_View(),
+        () => const Home_View(),
         transition: Transition.fade,
         duration: KDuration,
       );
