@@ -9,7 +9,7 @@ class ListView_Builder extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.25,
       child: ListView.builder(
-          padding: EdgeInsets.only(left: 16),
+          padding: const EdgeInsets.only(left: 16),
           scrollDirection: Axis.horizontal,
           itemBuilder: (Context, index) {
             return const Padding(
