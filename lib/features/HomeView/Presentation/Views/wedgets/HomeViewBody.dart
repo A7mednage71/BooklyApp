@@ -1,7 +1,6 @@
 import 'package:bookly/core/Utils/AssetsData.dart';
 import 'package:bookly/core/Utils/TextStyles.dart';
 import 'package:bookly/features/HomeView/Presentation/Views/wedgets/CustomAppPar.dart';
-import 'package:bookly/features/HomeView/Presentation/Views/wedgets/CustomListView.dart';
 import 'package:bookly/features/HomeView/Presentation/Views/wedgets/ListViewBuilder.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +21,7 @@ class Home_View_body extends StatelessWidget {
         ),
         Text(
           '      Best Seller',
-          style: TextStyles.mediumStyle,
+          style: TextStyles.textStyle18,
         ),
         SizedBox(
           height: 10,
