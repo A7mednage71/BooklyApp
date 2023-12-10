@@ -9,7 +9,7 @@ class Home_View_body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return   const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Custom_App_Bar(),
@@ -19,14 +19,17 @@ class Home_View_body extends StatelessWidget {
         SizedBox(
           height: 40,
         ),
-        Text(
-          '      Best Seller',
-          style: TextStyles.textStyle18,
-        ),
+         Text(
+        '      Best Seller',
+           style: TextStyles.textStyle18,
+       ),
         SizedBox(
-          height: 10,
+          height: 24,
         ),
-        BestSellerListView()
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 30),
+          child: BestSellerListView(),
+        )
       ],
     );
   }
@@ -42,7 +45,7 @@ class BestSellerListView extends StatelessWidget {
         SizedBox(
           width: MediaQuery.of(context).size.height * 0.11,
           child: AspectRatio(
-            aspectRatio: 1.25 / 2,
+            aspectRatio: 1.27 / 2,
             child: Container(
               decoration: const BoxDecoration(
                 image: DecorationImage(
@@ -53,6 +56,23 @@ class BestSellerListView extends StatelessWidget {
             ),
           ),
         ),
+        const SizedBox(
+          width: 30,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: MediaQuery.of(context).size.width * .5,
+              child: const Text(
+                'Harry Potter and the Goblet of Fiblet of Fiblet of Fiblet of Fire',
+                style: TextStyles.textStyle20,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ],
+        )
       ],
     );
   }
