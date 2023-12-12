@@ -1,3 +1,6 @@
+import 'package:bookly/core/Utils/TextStyles.dart';
+import 'package:bookly/features/HomeView/Presentation/Views/wedgets/BookDetailsAppBar.dart';
+import 'package:bookly/features/HomeView/Presentation/Views/wedgets/CustomBookitem.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsBody extends StatelessWidget {
@@ -5,38 +8,36 @@ class BookDetailsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         children: [
-          BookDetailsAppbar(),
+          const BookDetailsAppbar(),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.20,
+            ),
+            child: const Custom_Book_item(),
+          ),
+          const SizedBox(
+            height: 40,
+          ),
+          const Text(
+            'The Jungle Book',
+            style: TextStyles.textStyle30,
+          ),
+          Text(
+            'Rudyard Kipling',
+            style: TextStyles.textStyle18.copyWith(
+              color: Colors.white.withOpacity(0.7),
+              fontStyle: FontStyle.italic,
+            ),
+          ),
+          const SizedBox(
+            height: 14,
+          ),
         ],
       ),
-    );
-  }
-}
-
-class BookDetailsAppbar extends StatelessWidget {
-  const BookDetailsAppbar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.close,
-          ),
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.shopping_cart_outlined,
-          ),
-        )
-      ],
     );
   }
 }

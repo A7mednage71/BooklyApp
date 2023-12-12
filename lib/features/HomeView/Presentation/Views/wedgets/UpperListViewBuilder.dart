@@ -1,4 +1,4 @@
-import 'package:bookly/features/HomeView/Presentation/Views/wedgets/CustomUpperListViewitem.dart';
+import 'package:bookly/features/HomeView/Presentation/Views/wedgets/CustomBookitem.dart';
 import 'package:flutter/material.dart';
 
 class UpperListView_Builder extends StatelessWidget {
@@ -14,7 +14,7 @@ class UpperListView_Builder extends StatelessWidget {
         itemBuilder: (Context, index) {
           return const Padding(
             padding: EdgeInsets.only(left: 12),
-            child: Custom_ListView_item(),
+            child: Custom_Book_item(),
           );
         },
       ),
