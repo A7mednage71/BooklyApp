@@ -1,6 +1,7 @@
 import 'package:bookly/core/Utils/TextStyles.dart';
 import 'package:bookly/features/HomeView/Presentation/Views/wedgets/BookDetailsAppBar.dart';
 import 'package:bookly/features/HomeView/Presentation/Views/wedgets/CustomBookitem.dart';
+import 'package:bookly/features/HomeView/Presentation/Views/wedgets/RateWedget.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsBody extends StatelessWidget {
@@ -11,6 +12,7 @@ class BookDetailsBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const BookDetailsAppbar(),
           Padding(
@@ -35,6 +37,9 @@ class BookDetailsBody extends StatelessWidget {
           ),
           const SizedBox(
             height: 14,
+          ),
+          const Ratewedget(
+            mainAxisAlignment: MainAxisAlignment.center,
           ),
         ],
       ),
