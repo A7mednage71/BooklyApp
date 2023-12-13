@@ -41,7 +41,78 @@ class BookDetailsBody extends StatelessWidget {
           const Ratewedget(
             mainAxisAlignment: MainAxisAlignment.center,
           ),
+          const SizedBox(
+            height: 37,
+          ),
+          const DetailsButtom()
         ],
+      ),
+    );
+  }
+}
+
+class DetailsButtom extends StatelessWidget {
+  const DetailsButtom({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Row(
+      children: [
+        CustomTextButton(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(15),
+            bottomLeft: Radius.circular(15),
+          ),
+          textcolor: Colors.black,
+          backgroundcolor: Colors.white,
+          text: '19.99€',
+        ),
+        CustomTextButton(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(15),
+            bottomRight: Radius.circular(15),
+          ),
+          textcolor: Colors.white,
+          backgroundcolor: Color(0xffEF8262),
+          text: 'Free preview',
+        ),
+      ],
+    );
+  }
+}
+
+class CustomTextButton extends StatelessWidget {
+  const CustomTextButton({
+    super.key,
+    required this.borderRadius,
+    required this.textcolor,
+    required this.backgroundcolor,
+    required this.text,
+  });
+
+  final String text;
+  final BorderRadiusGeometry borderRadius;
+  final Color textcolor;
+  final Color backgroundcolor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: SizedBox(
+        height: 55,
+        child: TextButton(
+          style: TextButton.styleFrom(
+            shape: RoundedRectangleBorder(borderRadius: borderRadius),
+            backgroundColor: backgroundcolor,
+          ),
+          onPressed: () {},
+          child: Text(
+            text,
+            style: TextStyles.textStyle16.copyWith(
+              color: textcolor,
+            ),
+          ),
+        ),
       ),
     );
   }
