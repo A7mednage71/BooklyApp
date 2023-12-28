@@ -1,3 +1,4 @@
+import 'package:bookly/features/SearchView/presentation/Views/widgets/CustomApppar.dart';
 import 'package:flutter/material.dart';
 
 class SearchView extends StatelessWidget {
@@ -7,17 +8,22 @@ class SearchView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: searchViewBody(),
+        child: SearchViewBody(),
       ),
     );
   }
 }
 
-class searchViewBody extends StatelessWidget {
-  const searchViewBody({super.key});
+class SearchViewBody extends StatelessWidget {
+  const SearchViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 30),
+      child: Column(
+        children: [CustomAppBar()],
+      ),
+    );
   }
 }
