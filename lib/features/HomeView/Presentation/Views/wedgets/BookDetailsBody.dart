@@ -1,7 +1,5 @@
 import 'package:bookly/features/HomeView/Presentation/Views/wedgets/BookDetailsAppBar.dart';
-
 import 'package:bookly/features/HomeView/Presentation/Views/wedgets/DetailsSection.dart';
-
 import 'package:bookly/features/HomeView/Presentation/Views/wedgets/SimilarBookSection.dart';
 import 'package:flutter/material.dart';
 

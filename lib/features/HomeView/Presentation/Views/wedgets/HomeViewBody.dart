@@ -33,7 +33,7 @@ class Home_View_body extends StatelessWidget {
           ),
         ),
         SliverFillRemaining(
-          child: BestSellerlistBuilder(),
+          child: BestSellersBuilder(),
         )
       ],
     );
