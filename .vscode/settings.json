@@ -1,3 +1,8 @@
 {
-    "cmake.sourceDirectory": "C:/projects flutter/Bookly App/windows/runner"
+    "cmake.sourceDirectory": "C:/projects flutter/Bookly App/windows/runner",
+    "cSpell.words": [
+        "Acrtionbuttom",
+        "Actionbuttom",
+        "Ratewedget"
+    ]
 }

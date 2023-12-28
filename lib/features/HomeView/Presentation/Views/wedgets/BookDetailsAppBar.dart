@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BookDetailsAppbar extends StatelessWidget {
-  const BookDetailsAppbar({super.key});
+class BookDetailsAppear extends StatelessWidget {
+  const BookDetailsAppear({super.key});
 
   @override
   Widget build(BuildContext context) {
