@@ -1,6 +1,5 @@
 // ignore: file_name
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 
 abstract class Failure {
   final String message;
