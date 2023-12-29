@@ -11,7 +11,7 @@ class BestSellerListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push('/BoookDetails');
+        GoRouter.of(context).push('/BookDetails');
       },
       child: Row(
         children: [
