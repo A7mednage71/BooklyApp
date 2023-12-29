@@ -4,8 +4,8 @@ import 'package:bookly/features/HomeView/Presentation/Views/wedgets/RateWedget.d
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class BestSellerListitem extends StatelessWidget {
-  const BestSellerListitem({super.key});
+class BestSellerListItem extends StatelessWidget {
+  const BestSellerListItem({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,4 @@
-import 'package:bookly/features/SearchView/presentation/Views/widgets/CustomApppar.dart';
+import 'package:bookly/features/SearchView/presentation/Views/widgets/SearchViewBody.dart';
 import 'package:flutter/material.dart';
 
 class SearchView extends StatelessWidget {
@@ -14,16 +14,3 @@ class SearchView extends StatelessWidget {
   }
 }
 
-class SearchViewBody extends StatelessWidget {
-  const SearchViewBody({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30),
-      child: Column(
-        children: [CustomAppBar()],
-      ),
-    );
-  }
-}
