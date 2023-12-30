@@ -13,7 +13,7 @@ class SimilarBookList extends StatelessWidget {
         itemBuilder: (context, index) {
           return const Padding(
             padding: EdgeInsets.only(right: 10),
-            child: Custom_Book_item(),
+            child: Custom_Book_item(photoUrl: 'https://miro.medium.com/v2/resize:fit:1400/1*GLoQJzDAZ_C6G2p2FCA-hQ.png',),
           );
         },
       ),

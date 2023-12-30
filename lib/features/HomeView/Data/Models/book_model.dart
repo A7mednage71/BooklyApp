@@ -1,36 +1,6 @@
 
 class BookModel {
   String? kind;
-  int? totalItems;
-  List<Items>? items;
-
-  BookModel({this.kind, this.totalItems, this.items});
-
-  BookModel.fromJson(Map<String, dynamic> json) {
-    if(json["kind"] is String) {
-      kind = json["kind"];
-    }
-    if(json["totalItems"] is int) {
-      totalItems = json["totalItems"];
-    }
-    if(json["items"] is List) {
-      items = json["items"] == null ? null : (json["items"] as List).map((e) => Items.fromJson(e)).toList();
-    }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["kind"] = kind;
-    _data["totalItems"] = totalItems;
-    if(items != null) {
-      _data["items"] = items?.map((e) => e.toJson()).toList();
-    }
-    return _data;
-  }
-}
-
-class Items {
-  String? kind;
   String? id;
   String? etag;
   String? selfLink;
@@ -39,9 +9,9 @@ class Items {
   AccessInfo? accessInfo;
   SearchInfo? searchInfo;
 
-  Items({this.kind, this.id, this.etag, this.selfLink, this.volumeInfo, this.saleInfo, this.accessInfo, this.searchInfo});
+  BookModel({this.kind, this.id, this.etag, this.selfLink, this.volumeInfo, this.saleInfo, this.accessInfo, this.searchInfo});
 
-  Items.fromJson(Map<String, dynamic> json) {
+  BookModel.fromJson(Map<String, dynamic> json) {
     if(json["kind"] is String) {
       kind = json["kind"];
     }
