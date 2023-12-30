@@ -24,7 +24,7 @@ class UpperListView_Builder extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.only(left: 12),
                   child: Custom_Book_item(
-                    photoUrl: state.books[index].volumeInfo!.imageLinks!
+                    imageUrl: state.books[index].volumeInfo!.imageLinks!
                             .smallThumbnail ??
                         'https://miro.medium.com/v2/resize:fit:1400/1*GLoQJzDAZ_C6G2p2FCA-hQ.png',
                   ),

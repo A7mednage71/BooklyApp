@@ -15,7 +15,10 @@ class BookDetailsSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.20,
           ),
-          child: const Custom_Book_item(photoUrl: 'https://miro.medium.com/v2/resize:fit:1400/1*GLoQJzDAZ_C6G2p2FCA-hQ.png',),
+          child: const Custom_Book_item(
+            imageUrl:
+                'https://miro.medium.com/v2/resize:fit:1400/1*GLoQJzDAZ_C6G2p2FCA-hQ.png',
+          ),
         ),
         const SizedBox(
           height: 40,
