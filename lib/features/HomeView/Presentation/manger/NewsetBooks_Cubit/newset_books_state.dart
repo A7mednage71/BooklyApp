@@ -9,7 +9,6 @@ final class FeaturedBooksLoading extends NewSetBooksState {}
 
 final class FeaturedBooksFailure extends NewSetBooksState {
   final String message;
-
   FeaturedBooksFailure(this.message);
 }
 
