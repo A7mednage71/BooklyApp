@@ -1,3 +1,4 @@
+import 'package:bookly/core/helpers/LauncherURi.dart';
 import 'package:bookly/features/HomeView/Data/Models/book_model.dart';
 import 'package:bookly/features/HomeView/Presentation/Views/wedgets/CustomTextbuttom.dart';
 import 'package:flutter/material.dart';
@@ -23,10 +24,7 @@ class BookActionbuttom extends StatelessWidget {
         ),
         CustomTextButton(
           onPressed: () async {
-            Uri uri = Uri.parse(model.volumeInfo!.previewLink!);
-            if (await canLaunchUrl(uri)) {
-              await launchUrl(uri);
-            }
+            LauncherUri(context, model.volumeInfo!.previewLink!);
           },
           borderRadius: const BorderRadius.only(
             topRight: Radius.circular(15),
