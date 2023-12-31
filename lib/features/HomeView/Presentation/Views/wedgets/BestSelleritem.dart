@@ -24,7 +24,8 @@ class BestSellerListItem extends StatelessWidget {
               child: AspectRatio(
                 aspectRatio: 1.27 / 2,
                 child: CachedNetworkImage(
-                  imageUrl: bookModel.volumeInfo?.imageLinks?.smallThumbnail ?? 'https://d1whtlypfis84e.cloudfront.net/guides/wp-content/uploads/2019/01/21131136/Kendell_Geers_-_T-error_2003_sans_T-300x224.jpg',
+                  imageUrl: bookModel.volumeInfo?.imageLinks?.smallThumbnail ??
+                      'https://d1whtlypfis84e.cloudfront.net/guides/wp-content/uploads/2019/01/21131136/Kendell_Geers_-_T-error_2003_sans_T-300x224.jpg',
                   placeholder: (context, url) =>
                       const Center(child: CircularProgressIndicator()),
                   fit: BoxFit.fill,
@@ -43,7 +44,7 @@ class BestSellerListItem extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .5,
                   child: Text(
-                    bookModel.volumeInfo!.description ?? '',
+                    bookModel.volumeInfo!.title ?? '',
                     style: TextStyles.textStyle20,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,

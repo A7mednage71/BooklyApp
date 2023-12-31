@@ -24,9 +24,8 @@ class SimilarBookList extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.only(right: 10),
                   child: Custom_Book_item(
-                    imageUrl: state.books[index].volumeInfo!.imageLinks!
-                            .smallThumbnail ??
-                        '',
+                    imageUrl: state.books[index].volumeInfo!.imageLinks?.smallThumbnail ??
+                        'https://www.globalsign.com/application/files/9516/0389/3750/What_Is_an_SSL_Common_Name_Mismatch_Error_-_Blog_Image.jpg',
                   ),
                 );
               },
