@@ -24,7 +24,7 @@ class BestSellerListItem extends StatelessWidget {
               child: AspectRatio(
                 aspectRatio: 1.27 / 2,
                 child: CachedNetworkImage(
-                  imageUrl: bookModel.volumeInfo!.imageLinks!.smallThumbnail!,
+                  imageUrl: bookModel.volumeInfo?.imageLinks?.smallThumbnail ?? 'https://d1whtlypfis84e.cloudfront.net/guides/wp-content/uploads/2019/01/21131136/Kendell_Geers_-_T-error_2003_sans_T-300x224.jpg',
                   placeholder: (context, url) =>
                       const Center(child: CircularProgressIndicator()),
                   fit: BoxFit.fill,

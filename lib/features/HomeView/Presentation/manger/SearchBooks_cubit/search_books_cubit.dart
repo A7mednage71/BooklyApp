@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:bookly/features/HomeView/Data/Models/book_model.dart';
 import 'package:bookly/features/HomeView/Data/repos/Home_Rep_Imple.dart';
+import 'package:bookly/features/HomeView/Data/repos/Home_repo.dart';
 import 'package:meta/meta.dart';
 
 part 'search_books_state.dart';
@@ -8,7 +9,7 @@ part 'search_books_state.dart';
 class SearchBooksCubit extends Cubit<SearchBooksState> {
   SearchBooksCubit(this.homeRepo) : super(SearchBooksInitial());
 
-  final HomeRepoImpl homeRepo;
+  final HomeRepo homeRepo;
 
   Future<void> fetchSearchBooks({required String search}) async {
     emit(SearchBooksLoading());
