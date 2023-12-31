@@ -33,7 +33,9 @@ class UpperListView_Builder extends StatelessWidget {
             ),
           );
         } else if (state is FeaturedBooksFailure) {
-          return const CustomFailureWidget();
+          return CustomFailureWidget(
+            errorMessage: state.message,
+          );
         } else {
           return const CustomLoadingIndicator();
         }

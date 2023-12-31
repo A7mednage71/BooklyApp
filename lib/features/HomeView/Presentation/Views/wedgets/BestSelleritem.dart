@@ -1,12 +1,14 @@
-import 'package:bookly/core/Utils/AssetsData.dart';
 import 'package:bookly/core/Utils/TextStyles.dart';
+import 'package:bookly/features/HomeView/Data/Models/book_model.dart';
 import 'package:bookly/features/HomeView/Presentation/Views/wedgets/RateWedget.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BestSellerListItem extends StatelessWidget {
-  const BestSellerListItem({super.key});
+  const BestSellerListItem({super.key, required this.bookModel});
 
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -17,14 +19,16 @@ class BestSellerListItem extends StatelessWidget {
         children: [
           SizedBox(
             width: MediaQuery.of(context).size.height * 0.11,
-            child: AspectRatio(
-              aspectRatio: 1.27 / 2,
-              child: Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(AssetsDate.testPhoto),
-                    fit: BoxFit.fill,
-                  ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: AspectRatio(
+                aspectRatio: 1.27 / 2,
+                child: CachedNetworkImage(
+                  imageUrl: bookModel.volumeInfo!.imageLinks!.smallThumbnail!,
+                  placeholder: (context, url) =>
+                      const Center(child: CircularProgressIndicator()),
+                  fit: BoxFit.fill,
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),
@@ -38,26 +42,29 @@ class BestSellerListItem extends StatelessWidget {
               children: [
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .5,
-                  child: const Text(
-                    'Harry Potter and the Goblet of Fiblet of Fiblet of Fiblet of Fire',
+                  child: Text(
+                    bookModel.volumeInfo!.description ?? '',
                     style: TextStyles.textStyle20,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
-                const Text(
-                  'J.K. Rowling',
+                Text(
+                  bookModel.volumeInfo!.authors?[0] ?? 'UNKNOWN',
                   style: TextStyles.textStyle14,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      '19.99 €',
+                      'Free',
                       style: TextStyles.textStyle20
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
-                    const Ratewedget()
+                    Ratewedget(
+                      rate: bookModel.volumeInfo!.averageRating ?? 0,
+                      count: bookModel.volumeInfo!.ratingsCount ?? 0,
+                    )
                   ],
                 ),
               ],

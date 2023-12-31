@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CustomFailureWidget extends StatelessWidget {
-  const CustomFailureWidget({super.key});
-
+  const CustomFailureWidget({super.key, required this.errorMessage});
+  final String errorMessage;
   @override
   Widget build(BuildContext context) {
-    return const Text('There was a problem , please try again!');
+    return Center(child: Text('$errorMessage'));
   }
 }

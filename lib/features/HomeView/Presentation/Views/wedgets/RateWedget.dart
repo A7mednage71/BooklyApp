@@ -6,9 +6,13 @@ class Ratewedget extends StatelessWidget {
   const Ratewedget({
     super.key,
     this.mainAxisAlignment = MainAxisAlignment.start,
+    required this.rate,
+    required this.count,
   });
 
   final MainAxisAlignment mainAxisAlignment;
+  final int rate;
+  final int count;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,15 +26,15 @@ class Ratewedget extends StatelessWidget {
         const SizedBox(
           width: 6.3,
         ),
-        const Text(
-          '4.8',
+        Text(
+          '$rate',
           style: TextStyles.textStyle16,
         ),
         const SizedBox(
           width: 9,
         ),
         Text(
-          '(2390)',
+          '($count)',
           style: TextStyles.textStyle14
               .copyWith(color: Colors.white.withOpacity(0.5)),
         )

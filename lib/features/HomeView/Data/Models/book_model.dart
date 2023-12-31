@@ -147,23 +147,18 @@ class AccessInfo {
 
 class Pdf {
   bool? isAvailable;
-  String? acsTokenLink;
 
-  Pdf({this.isAvailable, this.acsTokenLink});
+  Pdf({this.isAvailable});
 
   Pdf.fromJson(Map<String, dynamic> json) {
     if(json["isAvailable"] is bool) {
       isAvailable = json["isAvailable"];
-    }
-    if(json["acsTokenLink"] is String) {
-      acsTokenLink = json["acsTokenLink"];
     }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> _data = <String, dynamic>{};
     _data["isAvailable"] = isAvailable;
-    _data["acsTokenLink"] = acsTokenLink;
     return _data;
   }
 }
@@ -190,8 +185,12 @@ class SaleInfo {
   String? country;
   String? saleability;
   bool? isEbook;
+  ListPrice? listPrice;
+  RetailPrice? retailPrice;
+  String? buyLink;
+  List<Offers>? offers;
 
-  SaleInfo({this.country, this.saleability, this.isEbook});
+  SaleInfo({this.country, this.saleability, this.isEbook, this.listPrice, this.retailPrice, this.buyLink, this.offers});
 
   SaleInfo.fromJson(Map<String, dynamic> json) {
     if(json["country"] is String) {
@@ -203,6 +202,18 @@ class SaleInfo {
     if(json["isEbook"] is bool) {
       isEbook = json["isEbook"];
     }
+    if(json["listPrice"] is Map) {
+      listPrice = json["listPrice"] == null ? null : ListPrice.fromJson(json["listPrice"]);
+    }
+    if(json["retailPrice"] is Map) {
+      retailPrice = json["retailPrice"] == null ? null : RetailPrice.fromJson(json["retailPrice"]);
+    }
+    if(json["buyLink"] is String) {
+      buyLink = json["buyLink"];
+    }
+    if(json["offers"] is List) {
+      offers = json["offers"] == null ? null : (json["offers"] as List).map((e) => Offers.fromJson(e)).toList();
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -210,6 +221,140 @@ class SaleInfo {
     _data["country"] = country;
     _data["saleability"] = saleability;
     _data["isEbook"] = isEbook;
+    if(listPrice != null) {
+      _data["listPrice"] = listPrice?.toJson();
+    }
+    if(retailPrice != null) {
+      _data["retailPrice"] = retailPrice?.toJson();
+    }
+    _data["buyLink"] = buyLink;
+    if(offers != null) {
+      _data["offers"] = offers?.map((e) => e.toJson()).toList();
+    }
+    return _data;
+  }
+}
+
+class Offers {
+  int? finskyOfferType;
+  ListPrice1? listPrice;
+  RetailPrice1? retailPrice;
+
+  Offers({this.finskyOfferType, this.listPrice, this.retailPrice});
+
+  Offers.fromJson(Map<String, dynamic> json) {
+    if(json["finskyOfferType"] is int) {
+      finskyOfferType = json["finskyOfferType"];
+    }
+    if(json["listPrice"] is Map) {
+      listPrice = json["listPrice"] == null ? null : ListPrice1.fromJson(json["listPrice"]);
+    }
+    if(json["retailPrice"] is Map) {
+      retailPrice = json["retailPrice"] == null ? null : RetailPrice1.fromJson(json["retailPrice"]);
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> _data = <String, dynamic>{};
+    _data["finskyOfferType"] = finskyOfferType;
+    if(listPrice != null) {
+      _data["listPrice"] = listPrice?.toJson();
+    }
+    if(retailPrice != null) {
+      _data["retailPrice"] = retailPrice?.toJson();
+    }
+    return _data;
+  }
+}
+
+class RetailPrice1 {
+  int? amountInMicros;
+  String? currencyCode;
+
+  RetailPrice1({this.amountInMicros, this.currencyCode});
+
+  RetailPrice1.fromJson(Map<String, dynamic> json) {
+    if(json["amountInMicros"] is int) {
+      amountInMicros = json["amountInMicros"];
+    }
+    if(json["currencyCode"] is String) {
+      currencyCode = json["currencyCode"];
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> _data = <String, dynamic>{};
+    _data["amountInMicros"] = amountInMicros;
+    _data["currencyCode"] = currencyCode;
+    return _data;
+  }
+}
+
+class ListPrice1 {
+  int? amountInMicros;
+  String? currencyCode;
+
+  ListPrice1({this.amountInMicros, this.currencyCode});
+
+  ListPrice1.fromJson(Map<String, dynamic> json) {
+    if(json["amountInMicros"] is int) {
+      amountInMicros = json["amountInMicros"];
+    }
+    if(json["currencyCode"] is String) {
+      currencyCode = json["currencyCode"];
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> _data = <String, dynamic>{};
+    _data["amountInMicros"] = amountInMicros;
+    _data["currencyCode"] = currencyCode;
+    return _data;
+  }
+}
+
+class RetailPrice {
+  double? amount;
+  String? currencyCode;
+
+  RetailPrice({this.amount, this.currencyCode});
+
+  RetailPrice.fromJson(Map<String, dynamic> json) {
+    if(json["amount"] is double) {
+      amount = json["amount"];
+    }
+    if(json["currencyCode"] is String) {
+      currencyCode = json["currencyCode"];
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> _data = <String, dynamic>{};
+    _data["amount"] = amount;
+    _data["currencyCode"] = currencyCode;
+    return _data;
+  }
+}
+
+class ListPrice {
+  double? amount;
+  String? currencyCode;
+
+  ListPrice({this.amount, this.currencyCode});
+
+  ListPrice.fromJson(Map<String, dynamic> json) {
+    if(json["amount"] is double) {
+      amount = json["amount"];
+    }
+    if(json["currencyCode"] is String) {
+      currencyCode = json["currencyCode"];
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> _data = <String, dynamic>{};
+    _data["amount"] = amount;
+    _data["currencyCode"] = currencyCode;
     return _data;
   }
 }
@@ -225,6 +370,8 @@ class VolumeInfo {
   int? pageCount;
   String? printType;
   List<String>? categories;
+  int? averageRating;
+  int? ratingsCount;
   String? maturityRating;
   bool? allowAnonLogging;
   String? contentVersion;
@@ -235,7 +382,7 @@ class VolumeInfo {
   String? infoLink;
   String? canonicalVolumeLink;
 
-  VolumeInfo({this.title, this.authors, this.publisher, this.publishedDate, this.description, this.industryIdentifiers, this.readingModes, this.pageCount, this.printType, this.categories, this.maturityRating, this.allowAnonLogging, this.contentVersion, this.panelizationSummary, this.imageLinks, this.language, this.previewLink, this.infoLink, this.canonicalVolumeLink});
+  VolumeInfo({this.title, this.authors, this.publisher, this.publishedDate, this.description, this.industryIdentifiers, this.readingModes, this.pageCount, this.printType, this.categories, this.averageRating, this.ratingsCount, this.maturityRating, this.allowAnonLogging, this.contentVersion, this.panelizationSummary, this.imageLinks, this.language, this.previewLink, this.infoLink, this.canonicalVolumeLink});
 
   VolumeInfo.fromJson(Map<String, dynamic> json) {
     if(json["title"] is String) {
@@ -267,6 +414,12 @@ class VolumeInfo {
     }
     if(json["categories"] is List) {
       categories = json["categories"] == null ? null : List<String>.from(json["categories"]);
+    }
+    if(json["averageRating"] is int) {
+      averageRating = json["averageRating"];
+    }
+    if(json["ratingsCount"] is int) {
+      ratingsCount = json["ratingsCount"];
     }
     if(json["maturityRating"] is String) {
       maturityRating = json["maturityRating"];
@@ -317,6 +470,8 @@ class VolumeInfo {
     if(categories != null) {
       _data["categories"] = categories;
     }
+    _data["averageRating"] = averageRating;
+    _data["ratingsCount"] = ratingsCount;
     _data["maturityRating"] = maturityRating;
     _data["allowAnonLogging"] = allowAnonLogging;
     _data["contentVersion"] = contentVersion;
