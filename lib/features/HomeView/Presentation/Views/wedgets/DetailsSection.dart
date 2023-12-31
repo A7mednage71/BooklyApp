@@ -1,12 +1,13 @@
 import 'package:bookly/core/Utils/TextStyles.dart';
+import 'package:bookly/features/HomeView/Data/Models/book_model.dart';
 import 'package:bookly/features/HomeView/Presentation/Views/wedgets/CustomBookitem.dart';
 import 'package:bookly/features/HomeView/Presentation/Views/wedgets/Details_widget.dart';
 import 'package:bookly/features/HomeView/Presentation/Views/wedgets/RateWedget.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key});
-
+  const BookDetailsSection({super.key, required this.model});
+  final BookModel model;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,20 +16,23 @@ class BookDetailsSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.20,
           ),
-          child: const Custom_Book_item(
-            imageUrl:
-                'https://miro.medium.com/v2/resize:fit:1400/1*GLoQJzDAZ_C6G2p2FCA-hQ.png',
+          child: Custom_Book_item(
+            imageUrl: model.volumeInfo!.imageLinks!.smallThumbnail!,
           ),
         ),
         const SizedBox(
           height: 40,
         ),
-        const Text(
-          'The Jungle Book',
-          style: TextStyles.textStyle30,
+        Center(
+          child: Text(
+            model.volumeInfo!.title!,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyles.textStyle30,
+          ),
         ),
         Text(
-          'Rudyard Kipling',
+          model.volumeInfo!.authors![0],
           style: TextStyles.textStyle18.copyWith(
             color: Colors.white.withOpacity(0.7),
             fontStyle: FontStyle.italic,
@@ -37,9 +41,10 @@ class BookDetailsSection extends StatelessWidget {
         const SizedBox(
           height: 14,
         ),
-        const Ratewedget(
-          mainAxisAlignment: MainAxisAlignment.center, rate: 5,
-          count: 5, ////////////////////
+        Ratewedget(
+          mainAxisAlignment: MainAxisAlignment.center,
+          rate: model.volumeInfo!.averageRating ?? 0,
+          count: model.volumeInfo!.ratingsCount ?? 0, ////////////////////
         ),
         const SizedBox(
           height: 37,

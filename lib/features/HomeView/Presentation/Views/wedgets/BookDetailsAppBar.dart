@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BookDetailsAppear extends StatelessWidget {
   const BookDetailsAppear({super.key});
@@ -9,7 +10,9 @@ class BookDetailsAppear extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            GoRouter.of(context).pop();
+          },
           icon: const Icon(
             Icons.close,
           ),

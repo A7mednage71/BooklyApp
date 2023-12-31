@@ -4,6 +4,7 @@ import 'package:bookly/features/HomeView/Presentation/Views/wedgets/CustomBookit
 import 'package:bookly/features/HomeView/Presentation/manger/Featuredbooks_Cubit/featured_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class UpperListView_Builder extends StatelessWidget {
   const UpperListView_Builder({super.key});
@@ -23,10 +24,16 @@ class UpperListView_Builder extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.only(left: 12),
-                  child: Custom_Book_item(
-                    imageUrl: state.books[index].volumeInfo!.imageLinks!
-                            .smallThumbnail ??
-                        'https://miro.medium.com/v2/resize:fit:1400/1*GLoQJzDAZ_C6G2p2FCA-hQ.png',
+                  child: GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context)
+                          .push('/BookDetails', extra: state.books[index]);
+                    },
+                    child: Custom_Book_item(
+                      imageUrl: state.books[index].volumeInfo!.imageLinks!
+                              .smallThumbnail ??
+                          'https://miro.medium.com/v2/resize:fit:1400/1*GLoQJzDAZ_C6G2p2FCA-hQ.png',
+                    ),
                   ),
                 );
               },

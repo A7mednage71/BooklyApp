@@ -28,9 +28,8 @@ class CustomTextButton extends StatelessWidget {
           onPressed: () {},
           child: Text(
             text,
-            style: TextStyles.textStyle16.copyWith(
-              color: textcolor,
-            ),
+            style: TextStyles.textStyle16
+                .copyWith(color: textcolor, fontWeight: FontWeight.bold),
           ),
         ),
       ),
